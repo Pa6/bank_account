@@ -31,14 +31,11 @@ class DepositController extends Controller
     }
 
 
-
-    protected $fillable = ['date', 'user_id', 'amount', 'number_per_day','status', 'currency'];
     /**
      * Documentation Block
      * @api {post} /api/v1/deposits Create a deposit
      * @apiName Create-a-deposit
      * @apiGroup Deposits
-     * @apiParam (Fields) {String} date Mandatory date field
      * @apiParam (Fields) {Integer} user_id Mandatory user_id field
      * @apiParam (Fields) {Integer} amount Mandatory amount field
      * @apiSuccess {object} Success-Response  On success returns an object of the created transaction.
@@ -94,7 +91,6 @@ class DepositController extends Controller
      * @api {put} /api/v1/deposits/{id} Update a deposits
      * @apiName Update-a-deposits
      * @apiGroup Deposits
-     * @apiParam (Fields) {String} date Mandatory date field
      * @apiParam (Fields) {Integer} user_id Mandatory user_id field
      * @apiParam (Fields) {Integer} amount Mandatory amount field
      * @apiSuccess {object} Success-Response  On success returns an object of the updated transaction.

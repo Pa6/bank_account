@@ -20,7 +20,7 @@ class CreateDepositsTable extends Migration
             $table->double('amount',15,2)->default(0);
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('number_per_day')->default(0);
+            $table->integer('number_per_day')->default(1);
             $table->integer('status')->default(1);
             $table->softDeletes();
             $table->timestamps();

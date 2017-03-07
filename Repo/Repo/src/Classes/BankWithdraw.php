@@ -30,30 +30,12 @@ class BankWithdraw extends BankBaseClass
     public function create(array $data){
 
         $date = date("Y-m-d");
-        $this->instance = $this->model->select(DB::raw('sum(amount) as total_deposit'), 'number_per_day')
-            ->where('date', $date)->where('user_id',$data['user_id'])->first();
-
-        $balance = Balance::where('user_id',$data['user_id'])->first();
-        //number of frequency 3
-        if($this->instance->number_per_day == 3){
-            return response()->json(['error' => 'bad_request'],400);
-        }
-        //max withdraw per day = 50kusd
-        elseif ($this->instance->total_deposit >= 50000){
-            return response()->json(['error' => 'bad_request'],400);
-        }
-        //cant withdraw large amount than he has
-        elseif ($balance->balance_money < $data['amount']){
-            return response()->json(['error' => 'bad_request'],400);
-        }
-        $data['number_per_day'] = $this->instance->number_per_day++;
-        //max withdraw per transaction 20kusd
-
+        $data['number_per_day'] = 1;
 
         $data['date'] = $date;
 
-        $transaction = $this->model->create($data);
-        return $this->adjustBalance($transaction);
+        $this->instance = $this->model->create($data);
+        return $this->adjustBalance($this->instance);
     }
     public function show($id){
 
@@ -61,8 +43,13 @@ class BankWithdraw extends BankBaseClass
     }
 
     public function update($id, array $data){
+
+        $balance = Balance::where('user_id',$data['user_id'])->first();
         $this->instance = $this->model->findOrFail($id);
         $this->instance->update($data);
+        $balance->balance_money = $balance->balance_money + $data['amount'];
+        $balance->save();
+
         return $this->instance;
     }
 

@@ -22,7 +22,7 @@ class BankDeposit extends BankBaseClass
 
 
     public function all(){
-        $this->instance = $this->model->get();
+        $this->instance = $this->model->with('user')->get();
         return $this->instance;
     }
 
@@ -44,10 +44,9 @@ class BankDeposit extends BankBaseClass
         $balance = Balance::where('user_id',$data['user_id'])->first();
 
         $this->instance = $this->model->findOrFail($id);
-        $difference = $data['amount'] - $this->instance->amount ;
         $this->instance->update($data);
         //increase the balance
-        $balance->balance_money = $balance->balance_money + $difference;
+        $balance->balance_money = $balance->balance_money + $data['amount'];
         $balance->save();
         return $this->instance;
     }
