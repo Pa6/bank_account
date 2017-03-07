@@ -207,6 +207,9 @@ return [
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'BankUsers'=> Repo\Facades\BankUsers::class,
         'BankTransactionType' => Repo\Facades\BankTransacßtionType::class,
+        'BankTransaction' => Repo\Facades\BankTransaction::class,
+        'BankDeposit' => Repo\Facades\BankDeposit::class,
+        'BankWithdraw' => Repo\Facades\BankWithdraw::class,
 
 
     ],

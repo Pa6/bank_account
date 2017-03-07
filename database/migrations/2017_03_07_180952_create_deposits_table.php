@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTransactionsTable extends Migration
+class CreateDepositsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,16 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('deposits', function (Blueprint $table) {
+
             $table->increments('id');
             $table->string('date')->default(date("Y-m-d"));
+            $table->string('currency')->default("USD");
+            $table->double('amount',15,2)->default(0);
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('transaction_type_id')->unsigned()->index();
-            $table->foreign('transaction_type_id')->references('id')->on('transaction_types')->onDelete('cascade');
-            $table->double('amount',15,2)->default(0);
+            $table->integer('number_per_day')->default(0);
             $table->integer('status')->default(1);
-            $table->string('currency')->default('USD');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -34,6 +34,6 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('transactions');
+        Schema::drop('deposits');
     }
 }

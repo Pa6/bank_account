@@ -5,15 +5,15 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Balance extends Model
+class Deposit extends Model
 {
-    protected $table = 'balances';
+    protected $table = 'deposits';
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-        protected $fillable = ['balance_money','user_id'];
+    protected $fillable = ['date', 'user_id', 'amount', 'number_per_day','status', 'currency'];
 
-    //balance belongs to users(customers)
     public function user(){
         return $this->belongsTo('App\User');
     }
+
 }

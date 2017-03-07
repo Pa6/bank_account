@@ -1,9 +1,12 @@
 <?php
 namespace Repo\Providers;
 use Illuminate\Support\ServiceProvider;
+use Repo\Classes\BankDeposit;
+use Repo\Classes\BankTransaction;
 use Repo\Classes\BankTransactionType;
 use Repo\Classes\BankUsers;
 use Illuminate\Container\Container as App;
+use Repo\Classes\BankWithdraw;
 
 /**
  * Created by PhpStorm.
@@ -33,6 +36,20 @@ class BankServiceProvider extends ServiceProvider{
         $this->app->bind('bank_transaction_type',function(App $app){
             return new BankTransactionType($app);
         });
-        
+
+        //Transaction
+        $this->app->bind('bank_transaction', function(App $app){
+            return new BankTransaction($app);
+        });
+
+        //Deposit
+        $this->app->bind('bank_deposit', function(App $app){
+            return new BankDeposit($app);
+        });
+
+        //Withdraw
+        $this->app->bind('bank_withdraw', function(App $app){
+            return new BankWithdraw($app);
+        });
     }
 }

@@ -32,6 +32,10 @@ class User extends Model
     }
 
     public function balance(){
-        return $this->hasMany('App\Balance');
+        return $this->hasOne('App\Balance');
+    }
+
+    public function transaction(){
+        return $this->hasMany('App\Transaction');
     }
 }
