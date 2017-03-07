@@ -22,7 +22,7 @@ class UsersController extends Controller
      * @api {get} /api/v1/users Get all users
      * @apiName Get-all-Users
      * @apiGroup Users
-     * @apiSuccess {array} Success-Response  On success returns an array containing user objects
+     * @apiSuccess {array} Success-Response  On success returns an array containing user object
      */
     public function index(){
         return JsonResponse::create(BankUsers::all(),200);

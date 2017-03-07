@@ -12,5 +12,6 @@
 */
 
 Route::group(['prefix'=>'api/v1'],function(){
-Route::resource('users', 'api\UsersController');
+Route::resource('users', 'Api\UsersController');
+Route::resource('transaction-types', 'Api\TransactionType');
 });

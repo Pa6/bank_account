@@ -12,12 +12,14 @@ class User extends Model
      *
      * @var array
      */
-     protected $table = 'users';
+    protected $table = 'users';
     protected $fillable = [
         'name', 'email', 'phone','date_of_birth','country','city'
     ];
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+    protected $with = ['balance'];
+
     public static function rules($user_id = 0) {
         $rules = [
             'name' => 'required',
@@ -27,5 +29,9 @@ class User extends Model
 
         ];
         return $rules;
+    }
+
+    public function balance(){
+        return $this->hasMany('App\Balance');
     }
 }

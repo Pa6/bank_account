@@ -206,6 +206,7 @@ return [
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'BankUsers'=> Repo\Facades\BankUsers::class,
+        'BankTransactionType' => Repo\Facades\BankTransacßtionType::class,
 
 
     ],

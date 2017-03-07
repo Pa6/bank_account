@@ -1,19 +1,18 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: pa6
- * Date: 06/03/2017
- * Time: 23:37
- */
+* Created by PhpStorm.
+* User: pa6
+* Date: 06/03/2017
+* Time: 23:57
+*/
+
 namespace Repo\Classes;
 
-use App\Balance;
-
-class BankUsers extends BankBaseClass{
+class BankTransactionType extends BankBaseClass{
 
     function model()
     {
-        return 'App\User';
+        return 'App\TransactionType';
     }
 
     public function all(){
@@ -21,9 +20,9 @@ class BankUsers extends BankBaseClass{
         return $this->instance;
     }
 
+
     public function create(array $data){
-        $customer= $this->model->create($data);
-        return $this->initialBalance($customer);
+        return $this->model->create($data);
     }
     public function show($id){
 
@@ -42,11 +41,4 @@ class BankUsers extends BankBaseClass{
         $this->instance->delete();
         return ['message'=>'model instance successfully deleted'];
     }
-
-    private function initialBalance($customer){
-        Balance::create(['user_id' => $customer->id, 'balance_money' => 0]);
-        return $customer;
-
-    }
 }
-
