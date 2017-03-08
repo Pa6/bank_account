@@ -10,6 +10,7 @@ namespace Repo\Classes;
 
 
 use App\Balance;
+use App\User;
 use Illuminate\Support\Facades\DB;
 
 class BankDeposit extends BankBaseClass
@@ -29,6 +30,7 @@ class BankDeposit extends BankBaseClass
 
     public function create(array $data)
     {
+        User::findOrFail($data['user_id']);
         $date = date("Y-m-d");
             $data['date'] = $date;
             $transaction = $this->model->create($data);
@@ -40,7 +42,7 @@ class BankDeposit extends BankBaseClass
     }
 
     public function update($id, array $data){
-
+        User::findOrFail($data['user_id']);
         $balance = Balance::where('user_id',$data['user_id'])->first();
 
         $this->instance = $this->model->findOrFail($id);

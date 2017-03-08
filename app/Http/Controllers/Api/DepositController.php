@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Deposit;
 use App\Exceptions\CustomModelNotFoundException;
+use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -44,6 +45,7 @@ class DepositController extends Controller
     public function store(Request $request){
 
         $rules = ['user_id' => 'required|numeric', 'amount' => 'required|numeric|max:40000'];
+
         $validation = Validator::make($request->all(),$rules);
         if($validation->fails()){
             return JsonResponse::create($validation->messages(),422);
