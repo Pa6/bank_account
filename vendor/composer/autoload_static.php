@@ -283,6 +283,7 @@ class ComposerStaticInitb523f57096bbc6988b2ab51afba9490b
     );
 
     public static $classMap = array (
+        'BalanceSeedTable' => __DIR__ . '/../..' . '/database/seeds/BalanceSeedTable.php',
         'CreateBalancesTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_07_072904_create_balances_table.php',
         'CreateDepositsTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_07_180952_create_deposits_table.php',
         'CreateTransactionDepositTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_07_110439_create_transaction_deposit_table.php',
@@ -291,6 +292,7 @@ class ComposerStaticInitb523f57096bbc6988b2ab51afba9490b
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'CreateWithdrawsTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_07_180932_create_withdraws_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
+        'DepositSeedTable' => __DIR__ . '/../..' . '/database/seeds/DepositSeedTable.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
@@ -804,6 +806,7 @@ class ComposerStaticInitb523f57096bbc6988b2ab51afba9490b
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'UsersSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersSeeder.php',
+        'WithDrawSeedTable' => __DIR__ . '/../..' . '/database/seeds/WithDrawSeedTable.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

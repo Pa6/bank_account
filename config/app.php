@@ -210,6 +210,7 @@ return [
         'BankTransaction' => Repo\Facades\BankTransaction::class,
         'BankDeposit' => Repo\Facades\BankDeposit::class,
         'BankWithdraw' => Repo\Facades\BankWithdraw::class,
+        'BankBalance' => Repo\Facades\BankBalance::class,
 
 
     ],

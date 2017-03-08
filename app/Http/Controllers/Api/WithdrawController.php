@@ -51,9 +51,13 @@ class WithdrawController extends Controller
         $date = date("Y-m-d");
 
         $withdraw = Withdraw::Select(DB::raw('sum(amount) as total_withdraw'))
-            ->where('date', $date)->where('user_id',$request['user_id'])->first();
+                                ->where('date', $date)
+                                ->where('user_id',$request['user_id'])
+                                ->first();
 
-        $frequency = Withdraw::where('date',$date)->where('user_id',$request['user_id'])->count();
+        $frequency = Withdraw::where('date',$date)
+                    ->where('user_id',$request['user_id'])
+                    ->count();
 
         $balance = Balance::where('user_id', $request['user_id'])->first();
         //number of frequency 3

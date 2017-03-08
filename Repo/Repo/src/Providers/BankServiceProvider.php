@@ -1,6 +1,7 @@
 <?php
 namespace Repo\Providers;
 use Illuminate\Support\ServiceProvider;
+use Repo\Classes\BankBalance;
 use Repo\Classes\BankDeposit;
 use Repo\Classes\BankTransaction;
 use Repo\Classes\BankTransactionType;
@@ -50,6 +51,11 @@ class BankServiceProvider extends ServiceProvider{
         //Withdraw
         $this->app->bind('bank_withdraw', function(App $app){
             return new BankWithdraw($app);
+        });
+
+        //Balance
+        $this->app->bind('bank_balance', function(App $app){
+            return new BankBalance($app);
         });
     }
 }

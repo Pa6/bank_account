@@ -14,9 +14,13 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->delete();
-        User::create(['email' => 'admin@akokanya.com' , 'name' => 'admin user', 'password' => Hash::make('admin')]);
-        User::create(['email' => 'manager@akokanya.com', 'name' => 'account manager', 'password' => Hash::make('manager')]);
+        DB::table('users')->truncate();
+        User::create(['email' => 'admin@akokanya.com' ,
+            'name'          => 'admin user',
+            'phone'         => '+250786160780',
+            'date_of_birth' => date("Y-m-d"),
+            'country'       => 'Country',
+            'city'          => 'City']);
 
     }
 }

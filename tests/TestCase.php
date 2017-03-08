@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * By Pascal developer
+ */
 class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
     /**
@@ -22,4 +24,45 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
 
         return $app;
     }
+
+
+    public function getSampleBalance(){
+        $balance = Balance::all()->first();
+        return(empty($balance)? null :$balance->id);
+    }
+
+    public function getSampleWithDraw(){
+        $withdraw = \App\Withdraw::all()->first();
+        return (empty($withdraw ? null : $withdraw->id));
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

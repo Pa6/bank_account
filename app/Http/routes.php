@@ -15,4 +15,5 @@ Route::group(['prefix'=>'api/v1'],function(){
 Route::resource('users', 'Api\UsersController');
 Route::resource('deposits', 'Api\DepositController');
 Route::resource('withdraws', 'Api\WithdrawController');
+Route::resource('balances', 'Api\BalanceController',['only'=>['index','show']]);
 });

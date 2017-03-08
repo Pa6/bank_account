@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'BalanceSeedTable' => $baseDir . '/database/seeds/BalanceSeedTable.php',
     'CreateBalancesTable' => $baseDir . '/database/migrations/2017_03_07_072904_create_balances_table.php',
     'CreateDepositsTable' => $baseDir . '/database/migrations/2017_03_07_180952_create_deposits_table.php',
     'CreateTransactionDepositTable' => $baseDir . '/database/migrations/2017_03_07_110439_create_transaction_deposit_table.php',
@@ -14,6 +15,7 @@ return array(
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'CreateWithdrawsTable' => $baseDir . '/database/migrations/2017_03_07_180932_create_withdraws_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
+    'DepositSeedTable' => $baseDir . '/database/seeds/DepositSeedTable.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',
@@ -527,4 +529,5 @@ return array(
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'UsersSeeder' => $baseDir . '/database/seeds/UsersSeeder.php',
+    'WithDrawSeedTable' => $baseDir . '/database/seeds/WithDrawSeedTable.php',
 );
