@@ -12,7 +12,7 @@ class DepositSeedTable extends Seeder
      */
     public function run()
     {
-        DB::table('deposits')->truncate();
+        DB::table('deposits')->delete();
         $data = [
             'date'              => '2017/03/08',
             'user_id'           => 1,

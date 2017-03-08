@@ -14,7 +14,7 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->truncate();
+        DB::table('users')->delete();
         User::create(['email' => 'admin@akokanya.com' ,
             'name'          => 'admin user',
             'phone'         => '+250786160780',

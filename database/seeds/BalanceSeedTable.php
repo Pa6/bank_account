@@ -13,7 +13,7 @@ class BalanceSeedTable extends Seeder
      */
     public function run()
     {
-        DB::table('balances')->truncate();
+        DB::table('balances')->delete();
         $balance = [
             'balance_money' => 20000,
             'user_id' => 1,

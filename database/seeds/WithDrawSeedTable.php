@@ -11,7 +11,7 @@ class WithDrawSeedTable extends Seeder
      */
     public function run()
     {
-        DB::table('withdraws')->truncate();
+        DB::table('withdraws')->delete();
         $data = [
             'date'              => '2017/03/08',
             'user_id'           => 1,
