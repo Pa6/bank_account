@@ -19,7 +19,7 @@ class BalanceController extends Controller
      * Documentation Block
      * @api {get} /api/v1/balances Get all balances
      * @apiName Get-all-Balances
-     * @apiGroup Balance
+     * @apiGroup Balances
      * @apiSuccess {array} Success-Response  On success returns an array containing balance object
      */
     public function index(){

@@ -76,7 +76,7 @@ class WithdrawController extends Controller
      * Documentation Block
      * @api {get} /api/v1/withdraw/{id} Get a withdraw
      * @apiName Get-a-withdraw
-     * @apiGroup withdraws
+     * @apiGroup Withdraws
      * @apiParam (Fields) {Integer} ID Withdraw id as url parameter
      * @apiSuccess {object} Success-Response  On success returns an object of the withdraw.
      * @apiError (404) {object} Not-found If a withdraw with id is not found. the api returns a not found response
