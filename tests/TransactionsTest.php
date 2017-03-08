@@ -179,4 +179,20 @@ class TransactionsTest extends TestCase
         ));
     }
 
+    public function testMaxDeposit(){
+        $this->call('POST','/api/v1/deposits',[
+            'date'              => '2017/03/08',
+            'amount'            => 5000,
+            'number_per_day'    => 2,
+            'status'            => 1,
+            'currency'          => 'USD',
+            'user_id'           => 1,
+        ],[],[],[]);
+
+        $this->assertResponseStatus(400);
+        $this->seeJsonStructure(array(
+            'error'=>'error'
+        ));
+    }
+
 }

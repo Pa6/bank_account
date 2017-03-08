@@ -32,7 +32,7 @@ class WithdrawController extends Controller
 
     /**
      * Documentation Block
-     * @api {post} /api/v1/withdraw Create a withdraw
+     * @api {post} /api/v1/withdraws Create a withdraw
      * @apiName Create-a-withdraw
      * @apiGroup Withdraws
      * @apiParam (Fields) {Integer} user_id Mandatory user_id field
@@ -74,7 +74,7 @@ class WithdrawController extends Controller
 
     /**
      * Documentation Block
-     * @api {get} /api/v1/withdraw/{id} Get a withdraw
+     * @api {get} /api/v1/withdraws/{id} Get a withdraw
      * @apiName Get-a-withdraw
      * @apiGroup Withdraws
      * @apiParam (Fields) {Integer} ID Withdraw id as url parameter
