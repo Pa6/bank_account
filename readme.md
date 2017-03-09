@@ -4,7 +4,7 @@ It is has tree endpoint: Balance, withdraw and deposit.
 
 How to deploy this application
 In your git bash, type the following commands:
-git clone https://gitlab.com/Pa6/bank_account.git
+git clone https://github.com/Pa6/bank_account.git
 
 To re-create the vendor/ directory with dependencies...
 type this command: composer install
