@@ -21,5 +21,6 @@ Follow the REST API pattern.
 The live testing url is on http://test-bista.pacoder.com/api/v1/{route-name}
 The full documentation of using this api is on: http://test-bista.pacoder.com/docs/
 
-I would like you to help me improve it.
+I would like you to contribute on this package.
+For more details send me an email on pa6developer@gmail.com
 Developed by Pascal 
