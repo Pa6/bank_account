@@ -18,8 +18,8 @@ Read and understand the laravel documentation.
 Follow the REST API pattern.
 
 
-The live testing url is on http://test-bista.pacoder.com/api/v1/{route-name}
-The full documentation of using this api is on: http://test-bista.pacoder.com/docs/
+The live testing url is on base_url/api/v1/{route-name}
+The full documentation of using this api is on: base_url/docs/
 
 I would like you to contribute on this package.
 For more details send me an email on pa6developer@gmail.com
