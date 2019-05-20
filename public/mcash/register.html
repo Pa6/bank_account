@@ -38,6 +38,7 @@
         <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
             <form class="login100-form validate-form">
                 <!--<span class="login100-form-title p-b-59">-->
+                <p id="error" style="color: red"></p>
                 <h2 style="color: #f7931d"><strong>Welcome to Mobicash</strong></h2>
                 <!--</span>-->
                 <br><br>
@@ -49,33 +50,33 @@
 
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
                     <span class="label-input100">Phone</span>
-                    <input class="input100" type="text" name="phone" placeholder="eg: 0788888888">
+                    <input class="input100" type="text" name="phone" placeholder="eg: 0788888888" id="phone">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                 <span class="label-input100">Email</span>
-                <input class="input100" type="text" name="email" placeholder="Email addess...">
+                <input class="input100" type="text" name="email" placeholder="Email addess..." id="email">
                 <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Username is required">
                 <span class="label-input100">Username</span>
-                <input class="input100" type="text" name="username" placeholder="Username...">
+                <input class="input100" type="text" name="username" placeholder="Username..." id="username">
                 <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
                     <span class="label-input100">Password</span>
-                    <input class="input100" type="text" name="pass" placeholder="*************">
+                    <input class="input100" type="text" name="pass" placeholder="*************" id="password">
                     <span class="focus-input100"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">
-                <span class="label-input100">Repeat Password</span>
-                <input class="input100" type="text" name="repeat-pass" placeholder="*************">
-                <span class="focus-input100"></span>
-                </div>
+                <!--<div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">-->
+                <!--<span class="label-input100">Repeat Password</span>-->
+                <!--<input class="input100" type="text" name="repeat-pass" placeholder="*************">-->
+                <!--<span class="focus-input100"></span>-->
+                <!--</div>-->
 
                 <div class="flex-m w-full p-b-33">
                     <div class="contact100-form-checkbox">
@@ -96,7 +97,7 @@
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn">
+                        <button class="login100-form-btn" id="submitBtn">
                             Register
                         </button>
                     </div>
@@ -128,5 +129,98 @@
 <!--===============================================================================================-->
 <script src="js/main.js"></script>
 
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+
+        var end_point = $("#endpoint").val();
+        // var phone = $("#phone").val();
+
+
+        var phone = $("#phone").val();
+        var email = $("#email").val();
+        var username = $("#username").val();
+        var password = $("#password").val();
+        alert(password);
+
+        $("#submitBtn").on('click', function (e) {
+            e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url : "/api/v1/users",
+//                  data : myJsonString,
+
+            data: {
+                name : username,
+                date_of_birth : "2010-10-10",
+                phone : phone,
+                email : email
+
+            },
+
+            success : function(data){
+
+                $("#submitBtn").text("...");
+
+
+                //  $("#success").html(data.message);
+                //  var objData = data["data"];
+
+                var res = JSON.stringify(data);
+                console.log(res)
+                alert(res)
+                window.localStorage.setItem('response', res);
+                window.location = '/mcash/list_users.html';
+
+            },
+
+
+
+            error: function (xhr) {
+//                      alert(xhr.status);
+                var status_code = xhr.status;
+
+
+                if (xhr.status == 422) {
+                    var errors = JSON.parse(xhr.responseText);
+                   // alert(status_code)
+                    alert(errors.email)
+
+                    console.log(xhr.responseText)
+//
+                    if (errors.phone) {
+                        $("#error").html("Phone number is required");
+                    }
+                    if(errors.email){
+                        $("#error").html("email is required");
+                    }
+//                    if (errors.travel_date) {
+//                        $("#success").html("Travel date is required");
+//                    }
+//                    if (errors.travel_time) {
+//                        $("#success").html("Travel time is required");
+//                    }
+//                    if (errors.start_point) {
+//                        $("#success").html("Start point is required");
+//                    }
+//                    if (errors.end_point) {
+//                        $("#success").html("End point is required");
+//                    }
+                }
+
+
+            }
+
+        },"json");
+
+        })
+
+
+
+
+
+    });
+</script>
 </body>
 </html>
